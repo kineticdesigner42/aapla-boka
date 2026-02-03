@@ -55,35 +55,34 @@
             font-size: 1.1rem;
         }
 
-        /* FULL STORY CARD */
         .story-entry {
             background: var(--white);
             border-radius: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             overflow: hidden;
             border-left: 6px solid var(--fc-maroon);
             display: flex;
             flex-direction: column;
         }
 
-        /* OPTIONAL IMAGE WITHIN STORY */
         .story-image {
             width: 100%;
-            max-height: 400px; /* Taller than the main page for better viewing */
+            max-height: 450px; 
             object-fit: cover;
             border-bottom: 1px solid #eee;
         }
 
-        .story-text-container {
+        /* Fixed: This class name now matches the HTML below */
+        .story-content {
             padding: 30px;
         }
 
-        .story-text-container p {
+        .story-content p {
             font-size: 1.1rem;
             color: #444;
             margin-bottom: 15px;
-            white-space: pre-line; /* Preserves paragraph breaks from form submissions */
+            white-space: pre-line;
         }
 
         .author-tag {
@@ -110,35 +109,34 @@
         <p class="subtitle">A full collection of memories shared by the Fergusson community.</p>
 
         <article class="story-entry">
-            <img src="photos/boka_riskshaw.jpg" class="story-image" alt="boka_riskshaw">
-                <div class="story-content">
-                    <p>"It was a quiet afternoon, and as I walked toward the gate, I saw Boka standing all alone in front of a parked rickshaw. There was nobody else around, and he was just standing there perfectly still, looking very serious. Where was he planning to go to? Visit his friends in egypt?"</p>
-                    <span class="author-tag">— Science Student, Batch of 2027</span></div>
+            <img src="photos/boka_riskshaw.jpg" class="story-image" alt="Boka near rickshaw">
+            <div class="story-content">
+                <p>"It was a quiet afternoon, and as I walked toward the gate, I saw Boka standing all alone in front of a parked rickshaw. There was nobody else around, and he was just standing there perfectly still, looking very serious. Where was he planning to go to? Visit his friends in Egypt?"</p>
+                <span class="author-tag">— Science Student, Batch of 2027</span>
+            </div>
         </article>
 
         <article class="story-entry">
-            <img src="photos/boka water.jpg" class="story-img-top" alt="boka water">
-                <div class="story-content">
-                    <p>"His highness boka has a special earthen pot to keep his water at optimum temperature. He can be seen drinking from it after a hearty meal, which happens unsurprisingly often."</p>
-                    <span class="author-tag">— Science Student, Batch of 2027</span>
-                </div>
+            <img src="photos/boka water.jpg" class="story-image" alt="Boka drinking water">
+            <div class="story-content">
+                <p>"His highness Boka has a special earthen pot to keep his water at optimum temperature. He can be seen drinking from it after a hearty meal, which happens unsurprisingly often."</p>
+                <span class="author-tag">— Science Student, Batch of 2027</span>
+            </div>
         </article>
 
         <article class="story-entry">
-            <img src="photos/boka and dog.jpg" class="story-img-top" alt="boka dog">
-                <div class="story-content">
-                    <p>"Boka is now spending time with this cute pregnant dog. They sleep and eat together, just like Garfield and Oddie in the comics, the dog follows wherever boka goes or eats and drinks."</p>
-                    <span class="author-tag">— Science Student, Batch of 2027</span>
-                </div>
+            <img src="photos/boka and dog.jpg" class="story-image" alt="Boka and his dog friend">
+            <div class="story-content">
+                <p>"Boka is now spending time with this cute pregnant dog. They sleep and eat together, just like Garfield and Odie in the comics. The dog follows wherever Boka goes, eats, and drinks."</p>
+                <span class="author-tag">— Science Student, Batch of 2027</span>
+            </div>
         </article>
-
         
-        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 The Fergusson College Community</p>
     </footer>
 
 </body>
-
 </html>
