@@ -101,7 +101,7 @@
 
         .horizontal-scroll::-webkit-scrollbar { display: none; }
 
-        /* STORY CARDS - UPDATED FOR IMAGES */
+        /* STORY CARDS */
         .story-card {
             flex: 0 0 85%;
             background: var(--white);
@@ -109,7 +109,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.04);
             scroll-snap-align: center;
             border-left: 6px solid var(--fc-maroon);
-            overflow: hidden; /* Important to clip the top image */
+            overflow: hidden;
             display: flex;
             flex-direction: column;
         }
@@ -199,7 +199,6 @@
 
         footer { text-align: center; padding: 40px; color: #999; font-size: 0.8rem; border-top: 1px solid #eee; }
 
-        /* DESKTOP VIEW */
         @media (min-width: 768px) {
             .story-card { flex: 0 0 40%; }
             .gallery-item { flex: 0 0 30%; }
@@ -218,6 +217,41 @@
         
         <div class="section-header">
             <div class="section-title-group">
+                <h2 class="section-title-marathi">चित्रशाळा</h2>
+                <span style="font-size: 0.8rem; color: #999;">Gallery</span>
+            </div>
+            <a href="gallery.html" class="view-all-link">View All Photos</a>
+        </div>
+
+        <div class="horizontal-scroll">
+            <div class="gallery-item">
+                 <img src="photos/boka_sitting.jpg" alt="boka sitting">
+            </div>
+            <div class="gallery-item">
+                 <img src="photos/boka stand 3.jpg" alt="boka stand1">
+            </div>
+            <div class="gallery-item">
+                 <img src="photos/boka sit4.jpg" alt="boka sit 4">
+            </div>
+            <div class="gallery-item">
+                 <img src="photos/boka stand4.png" alt="boka stand">
+            </div>
+            <div class="gallery-item">
+                <img src="photos/boka_lisa.jpg" alt="boka lisa">
+            </div>
+            <div class="gallery-item">
+                 <img src="photos/boka_eating.jpg" alt="boka eating">
+            </div>
+            <div class="gallery-item">
+                 <img src="photos/boka.jpg" alt="boka">
+            </div>
+            <div class="gallery-item">
+                 <img src="photos/boka back.jpg" alt="boka back">
+            </div>
+        </div>
+
+        <div class="section-header">
+            <div class="section-title-group">
                 <h2 class="section-title-marathi">आठवणी</h2>
                 <span style="font-size: 0.8rem; color: #999;">Memories</span>
             </div>
@@ -226,7 +260,7 @@
         
         <div class="horizontal-scroll">
             <div class="story-card">
-                <img src="photos/boka_riskshaw.jpg" class="story-image" alt="boka_riskshaw">
+                <img src="photos/boka_riskshaw.jpg" class="story-img-top" alt="boka_riskshaw">
                 <div class="story-content">
                     <p>"It was a quiet afternoon, and as I walked toward the gate, I saw Boka standing all alone in front of a parked rickshaw. There was nobody else around, and he was just standing there perfectly still, looking very serious. Where was he planning to go to? Visit his friends in Egypt?"</p>
                     <span class="author-tag">— Science Student, Batch of 2027</span>
@@ -257,33 +291,6 @@
             </div>
         </div>
 
-        <div class="section-header">
-            <div class="section-title-group">
-                <h2 class="section-title-marathi">चित्रशाळा</h2>
-                <span style="font-size: 0.8rem; color: #999;">Gallery</span>
-            </div>
-            <a href="gallery.html" class="view-all-link">View All Photos</a>
-        </div>
-
-        <div class="horizontal-scroll">
-            <div class="gallery-item">
-                 <img src="photos/boka_sitting.jpg" alt="boka sitting">
-            </div>
-            <div class="gallery-item">
-                <img src="photos/boka_lisa.jpg" alt="boka lisa">
-            </div>
-            <div class="gallery-item">
-                 <img src="photos/boka_eating.jpg" alt="boka eating">
-            </div>
-            <div class="gallery-item">
-                 <img src="photos/boka.jpg" alt="boka">
-            </div>
-            <div class="gallery-item">
-                 <img src="photos/boka back.jpg" alt="boka back">
-            </div>
-
-        </div>
-
         <div class="cta-section">
             <h2 class="section-title-marathi" style="color: white; margin-bottom: 10px;">तुमची गोष्ट सांगा</h2>
             <p>Help us preserve the memories of our favorite senior.</p>
@@ -308,8 +315,4 @@
     </footer>
 
 </body>
-
 </html>
-
-
-
