@@ -120,6 +120,7 @@
             object-fit: cover;
             display: block;
             border-bottom: 1px solid #eee;
+            cursor: pointer;
         }
 
         .story-content {
@@ -151,6 +152,30 @@
             border-radius: 15px;
             display: block;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .gallery-item img:hover { transform: scale(1.02); }
+
+        /* FULLSCREEN OVERLAY STYLE */
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            cursor: pointer;
+        }
+        .fullscreen img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 5px;
         }
 
         /* CALL TO ACTION */
@@ -225,28 +250,28 @@
 
         <div class="horizontal-scroll">
             <div class="gallery-item">
-                 <img src="photos/boka_sitting.jpg" alt="boka sitting">
+                 <img src="photos/boka_sitting.jpg" alt="boka sitting" onclick="fullscreen(event)">
             </div>
             <div class="gallery-item">
-                 <img src="photos/boka stand 3.jpg" alt="boka stand1">
+                 <img src="photos/boka stand 3.jpg" alt="boka stand 3" onclick="fullscreen(event)">
             </div>
             <div class="gallery-item">
-                 <img src="photos/boka sit4.jpg" alt="boka sit 4">
+                 <img src="photos/boka sit4.jpg" alt="boka sit 4" onclick="fullscreen(event)">
             </div>
             <div class="gallery-item">
-                 <img src="photos/boka stand4.png" alt="boka stand">
+                 <img src="photos/boka stand4.png" alt="boka stand 4" onclick="fullscreen(event)">
             </div>
             <div class="gallery-item">
-                <img src="photos/boka_lisa.jpg" alt="boka lisa">
+                <img src="photos/boka_lisa.jpg" alt="boka lisa" onclick="fullscreen(event)">
             </div>
             <div class="gallery-item">
-                 <img src="photos/boka_eating.jpg" alt="boka eating">
+                 <img src="photos/boka_eating.jpg" alt="boka eating" onclick="fullscreen(event)">
             </div>
             <div class="gallery-item">
-                 <img src="photos/boka.jpg" alt="boka">
+                 <img src="photos/boka.jpg" alt="boka" onclick="fullscreen(event)">
             </div>
             <div class="gallery-item">
-                 <img src="photos/boka back.jpg" alt="boka back">
+                 <img src="photos/boka back.jpg" alt="boka back" onclick="fullscreen(event)">
             </div>
         </div>
 
@@ -260,7 +285,7 @@
         
         <div class="horizontal-scroll">
             <div class="story-card">
-                <img src="photos/boka_riskshaw.jpg" class="story-img-top" alt="boka_riskshaw">
+                <img src="photos/boka_riskshaw.jpg" class="story-img-top" alt="boka rickshaw" onclick="fullscreen(event)">
                 <div class="story-content">
                     <p>"It was a quiet afternoon, and as I walked toward the gate, I saw Boka standing all alone in front of a parked rickshaw. There was nobody else around, and he was just standing there perfectly still, looking very serious. Where was he planning to go to? Visit his friends in Egypt?"</p>
                     <span class="author-tag">— Science Student, Batch of 2027</span>
@@ -268,7 +293,7 @@
             </div>
 
             <div class="story-card">
-                <img src="photos/boka and dog.jpg" class="story-img-top" alt="boka dog">
+                <img src="photos/boka and dog.jpg" class="story-img-top" alt="boka dog" onclick="fullscreen(event)">
                 <div class="story-content">
                     <p>"Boka is now spending time with this cute pregnant dog. They sleep and eat together, just like Garfield and Odie in the comics, the dog follows wherever boka goes."</p>
                     <span class="author-tag">— Science Student, Batch of 2027</span>
@@ -276,14 +301,14 @@
             </div>
 
             <div class="story-card">
-                <img src="photos/boka water.jpg" class="story-img-top" alt="boka water">
+                <img src="photos/boka water.jpg" class="story-img-top" alt="boka water" onclick="fullscreen(event)">
                 <div class="story-content">
                     <p>"His highness boka has a special earthen pot to keep his water at optimum temperature. He can be seen drinking from it after a hearty meal, which happens unsurprisingly often."</p>
                     <span class="author-tag">— Science Student, Batch of 2027</span>
                 </div>
             </div>
             <div class="story-card">
-                <img src="photos/boka eating1.jpg" class="story-img-top" alt="boka eat1">
+                <img src="photos/boka eating1.jpg" class="story-img-top" alt="boka eating 1" onclick="fullscreen(event)">
                 <div class="story-content">
                     <p>"First feeding with Boka was a success. He moved from a resting state to being fully engaged as soon as the food appeared. He showed great manners by eating directly from my hand, and after finishing, he headed back to his spot to relax. Overall, a very chill interaction."</p>
                     <span class="author-tag">— Science Student, Batch of 2027</span>
@@ -313,6 +338,31 @@
         <p><a href="privacy.html" style="color: #999;">Privacy Policy</a></p>
         <p>&copy; 2026 The Fergusson College Community</p><br><p>A non-commercial student tribute.</p>
     </footer>
+
+    <script>
+        window.fullscreen = (event) => {
+          const overlay = document.createElement('div')
+          overlay.classList.add('fullscreen')
+
+          const image = document.createElement('img')
+          image.src = event.target.src
+          image.alt = event.target.alt
+
+          overlay.appendChild(image)
+          document.body.appendChild(overlay)
+
+          overlay.addEventListener('click', () => {
+            overlay.remove()
+          })
+
+          document.addEventListener('keydown', function escListener(e) {
+            if (e.key === 'Escape') {
+              overlay.remove()
+              document.removeEventListener('keydown', escListener)
+            }
+          })
+        }
+    </script>
 
 </body>
 </html>
