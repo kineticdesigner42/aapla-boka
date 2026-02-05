@@ -71,9 +71,14 @@
             max-height: 450px; 
             object-fit: cover;
             border-bottom: 1px solid #eee;
+            cursor: pointer; /* Added pointer to show it's clickable */
+            transition: opacity 0.2s;
         }
 
-        /* Fixed: This class name now matches the HTML below */
+        .story-image:hover {
+            opacity: 0.95;
+        }
+
         .story-content {
             padding: 30px;
         }
@@ -90,6 +95,27 @@
             font-size: 0.85rem;
             color: var(--sage-green);
             display: block;
+        }
+
+        /* FULLSCREEN OVERLAY STYLE */
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            cursor: pointer;
+        }
+        .fullscreen img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
         }
 
         footer {
@@ -109,15 +135,24 @@
         <p class="subtitle">A full collection of memories shared by the Fergusson community.</p>
 
         <article class="story-entry">
-            <img src="photos/boka_riskshaw.jpg" class="story-image" alt="Boka near rickshaw">
+            <img src="photos/boka_riskshaw.jpg" class="story-image" alt="Boka near rickshaw" onclick="fullscreen(event)">
             <div class="story-content">
                 <p>"It was a quiet afternoon, and as I walked toward the gate, I saw Boka standing all alone in front of a parked rickshaw. There was nobody else around, and he was just standing there perfectly still, looking very serious. Where was he planning to go to? Visit his friends in Egypt?"</p>
                 <span class="author-tag">— Science Student, Batch of 2027</span>
             </div>
         </article>
 
+        
         <article class="story-entry">
-            <img src="photos/boka water.jpg" class="story-image" alt="Boka drinking water">
+            <img src="photos/boka friend.png" class="story-image" alt="Boka with friend" onclick="fullscreen(event)">
+            <div class="story-content">
+                <p>"I love cats and dogs, my friend and I come for a walk daily. It is a cute cat, always on the branch of tree, it's safe place. Nowadays I bring for it a treat!"</p>
+                <span class="author-tag">— Regular Visitor & Friend of Boka</span>
+            </div>
+        </article>
+
+        <article class="story-entry">
+            <img src="photos/boka water.jpg" class="story-image" alt="Boka drinking water" onclick="fullscreen(event)">
             <div class="story-content">
                 <p>"His highness Boka has a special earthen pot to keep his water at optimum temperature. He can be seen drinking from it after a hearty meal, which happens unsurprisingly often."</p>
                 <span class="author-tag">— Science Student, Batch of 2027</span>
@@ -125,7 +160,7 @@
         </article>
 
         <article class="story-entry">
-            <img src="photos/boka and dog.jpg" class="story-image" alt="Boka and his dog friend">
+            <img src="photos/boka and dog.jpg" class="story-image" alt="Boka and his dog friend" onclick="fullscreen(event)">
             <div class="story-content">
                 <p>"Boka is now spending time with this cute pregnant dog. They sleep and eat together, just like Garfield and Odie in the comics. The dog follows wherever Boka goes, eats, and drinks."</p>
                 <span class="author-tag">— Science Student, Batch of 2027</span>
@@ -133,21 +168,20 @@
         </article>
 
         <article class="story-entry">
-            <img src="photos/boka eating1.jpg" class="story-image" alt="Boka eat1">
+            <img src="photos/boka eating1.jpg" class="story-image" alt="Boka eat1" onclick="fullscreen(event)">
             <div class="story-content">
                 <p>"First feeding with Boka was a success. He moved from a resting state to being fully engaged as soon as the food appeared. He showed great manners by eating directly from my hand, and after finishing, he headed back to his spot to relax. Overall, a very chill interaction."</p>
                 <span class="author-tag">— Science Student, Batch of 2027</span>
             </div>
         </article>
 
-     <article class="story-entry">
-            <img src="photos/boka plastic.jpg" class="story-image" alt="Boka plastic">
+        <article class="story-entry">
+            <img src="photos/boka plastic.jpg" class="story-image" alt="Boka plastic" onclick="fullscreen(event)">
             <div class="story-content">
                 <p>"Boka demonstrated some interesting behavior today. I initially tracked his position from afar, but upon arrival, I found only a plastic bag left in his place. He effectively used the object as a distraction while he went out to play or hunt. He’s proving to be quite strategic."</p>
                 <span class="author-tag">— Science Student, Batch of 2027</span>
             </div>
         </article>
-        
         
     </div>
 
@@ -155,7 +189,30 @@
         <p>&copy; 2026 The Fergusson College Community</p>
     </footer>
 
+    <script>
+        window.fullscreen = (event) => {
+          const overlay = document.createElement('div')
+          overlay.classList.add('fullscreen')
+
+          const image = document.createElement('img')
+          image.src = event.target.src
+          image.alt = event.target.alt
+
+          overlay.appendChild(image)
+          document.body.appendChild(overlay)
+
+          overlay.addEventListener('click', () => {
+            overlay.remove()
+          })
+
+          document.addEventListener('keydown', function escListener(e) {
+            if (e.key === 'Escape') {
+              overlay.remove()
+              document.removeEventListener('keydown', escListener)
+            }
+          })
+        }
+    </script>
+
 </body>
 </html>
-
-
